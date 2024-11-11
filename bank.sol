@@ -1,3 +1,28 @@
+pragma solidity ^0.8.26;
+/**
+ * @title MyBank
+ * @dev This contract handles banking operations.
+ * @notice Ensure you have sufficient balance before attempting to withdraw.
+ 
+ */
+contract Demo {
+uint private newbal = 3500;
+function deposit(uint x) public {
+newbal += x;
+}
+function withdraw(uint x) public {
+if (newbal < x) {
+revert("Insufficient balance");
+}
+newbal -= x;
+}
+function show() public view returns (uint) {
+return newbal;
+}
+}
+
+*****************************************************************************************************
+
 pragma solidity ^0.8.0;
 
 /**
